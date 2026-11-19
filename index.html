@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7ff">
+  <title>LearnSlider — leer met Nora</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="LearnSlider startpagina"><span class="brand-mark">L</span><span>Learn<span class="brand-accent">Slider</span></span></a>
+      <span class="top-note"><span class="online-dot"></span> Nora is er voor je</span>
+    </header>
+
+    <section class="welcome-card" id="home" aria-labelledby="welcome-title">
+      <div class="welcome-copy">
+        <p class="eyebrow">JOUW VRIENDELIJKE TAALMAATJE</p>
+        <h1 id="welcome-title">Hoi! Ik ben <span>Nora.</span></h1>
+        <p class="intro">Leuk dat je er bent. Waar heb je zin in?</p>
+        <div class="choice-row">
+          <button class="choice-button primary" id="chat-choice" type="button"><span class="choice-icon" aria-hidden="true">💬</span><span><strong>Chatten</strong><small>Praat gezellig met mij</small></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button class="choice-button secondary" id="learn-choice" type="button"><span class="choice-icon" aria-hidden="true">📚</span><span><strong>Een taal leren</strong><small>Oefen stap voor stap</small></span><span class="arrow" aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="nora-stage" aria-label="Nora, een vrolijk robot-hondje">
+        <div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div>
+        <div class="speech-bubble">Waf! Zullen we samen oefenen?</div>
+        <div class="robot-dog" aria-hidden="true">
+          <div class="tail"></div><div class="body"><div class="body-light"></div><div class="leg leg-back"></div><div class="leg leg-front"></div></div>
+          <div class="neck"></div><div class="head"><div class="ear ear-left"></div><div class="ear ear-right"></div><div class="face-screen"><span class="eye eye-left"></span><span class="eye eye-right"></span><span class="smile"></span></div><div class="cheek cheek-left"></div><div class="cheek cheek-right"></div></div>
+          <div class="antenna"><i></i></div>
+        </div>
+        <div class="platform"></div>
+      </div>
+    </section>
+
+    <section class="work-area" id="work-area" hidden>
+      <div class="panel-heading"><button class="back-button" id="back-home" type="button" aria-label="Terug naar start">←</button><div><p class="eyebrow" id="section-eyebrow">SAMEN AAN DE SLAG</p><h2 id="section-title">Chat met Nora</h2></div></div>
+      <div class="language-picker" id="language-picker" hidden>
+        <label for="language-select">Welke taal wil je oefenen?</label>
+        <select id="language-select"><option value="nl">Nederlands</option><option value="fr">Frans</option><option value="de">Duits</option><option value="en">Engels</option></select>
+        <p class="helper-text">Nora legt alles rustig uit in het Nederlands.</p>
+      </div>
+      <div class="chat-window" id="chat-window" aria-live="polite" aria-label="Gesprek met Nora"></div>
+      <div class="quick-prompts" id="quick-prompts"></div>
+      <form class="message-form" id="message-form"><label class="visually-hidden" for="message-input">Typ je bericht</label><input id="message-input" type="text" placeholder="Typ hier je bericht…" autocomplete="off" maxlength="300"><button type="submit" aria-label="Bericht versturen">Verstuur <span aria-hidden="true">➤</span></button></form>
+      <p class="disclaimer">Nora’s eerste versie gebruikt voorbeeldgesprekken en werkt zonder AI-dienst of extra kosten.</p>
+    </section>
+    <footer>Gemaakt om samen te leren <span aria-hidden="true">♥</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
