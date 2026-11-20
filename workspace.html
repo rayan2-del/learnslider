@@ -109,7 +109,30 @@ function answer(correct) {
 
 function startTranslation() {
   alert("Vertaalspel komt hier.");
+}<section id="voetbal" style="text-align:center;">
+  <h2>⚽ Voetbalspel</h2>
+  <p>Score: <strong id="voetbalScore">0</strong></p>
+  <button onclick="voetbalSchot('links')">Schiet links</button>
+  <button onclick="voetbalSchot('rechts')">Schiet rechts</button>
+  <p id="voetbalResultaat"></p>
+</section>
+
+<script>
+let voetbalScore = 0;
+
+function voetbalSchot(richting) {
+  const keeper = Math.random() < 0.5 ? "links" : "rechts";
+  if (richting !== keeper) {
+    voetbalScore++;
+    document.getElementById("voetbalResultaat").textContent =
+      "🎉 Goal!";
+  } else {
+    document.getElementById("voetbalResultaat").textContent =
+      "🧤 De keeper stopt hem!";
+  }
+  document.getElementById("voetbalScore").textContent = voetbalScore;
 }
+</script>
 
 function startMemory() {
   alert("Memory komt hier.");
