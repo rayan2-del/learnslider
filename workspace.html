@@ -91,3 +91,27 @@
   </main>
 </body>
 </html>
+<div id="games">
+  <button onclick="startQuiz()">Quiz</button>
+  <button onclick="startTranslation()">Vertalen</button>
+  <button onclick="startMemory()">Memory</button>
+</div>
+
+<script>
+function startQuiz() {
+  document.getElementById("games").innerHTML =
+    "<h2>Wat betekent: hello?</h2><button onclick=\"answer(true)\">Hallo</button>";
+}
+
+function answer(correct) {
+  alert(correct ? "Goed!" : "Probeer opnieuw");
+}
+
+function startTranslation() {
+  alert("Vertaalspel komt hier.");
+}
+
+function startMemory() {
+  alert("Memory komt hier.");
+}
+</script>
