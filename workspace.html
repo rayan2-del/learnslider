@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Workspace</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #090d18;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: #090d18;
+      z-index: 10;
+      animation: hideIntro 1s 3.2s forwards;
+    }
+
+    .logo {
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 900;
+      letter-spacing: .08em;
+      animation: logoIn 1.2s ease both;
+    }
+
+    .logo span:nth-child(2n) { color: #58a6ff; }
+    .logo span:nth-child(2n + 1) { color: #ffb347; }
+
+    .home {
+      width: min(600px, 90%);
+      text-align: center;
+      opacity: 0;
+      animation: showHome 1s 3.8s forwards;
+    }
+
+    .professor {
+      width: 150px;
+      height: 150px;
+      margin: auto;
+      border-radius: 50%;
+      background: #ffc28a;
+      border: 8px solid white;
+      display: grid;
+      place-items: center;
+      font-size: 5rem;
+    }
+
+    button {
+      margin-top: 25px;
+      border: 0;
+      border-radius: 14px;
+      padding: 16px 28px;
+      background: #58a6ff;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @keyframes logoIn {
+      0% { opacity: 0; transform: scale(.5); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes hideIntro { to { opacity: 0; visibility: hidden; } }
+    @keyframes showHome { to { opacity: 1; } }
+  </style>
+</head>
+<body>
+  <div class="intro" aria-label="Workspace startscherm">
+    <div class="logo" aria-label="Workspace">
+      <span>W</span><span>O</span><span>R</span><span>K</span><span>S</span><span>P</span><span>A</span><span>C</span><span>E</span>
+    </div>
+  </div>
+
+  <main class="home">
+    <div class="professor" aria-hidden="true">👨‍🏫</div>
+    <h1>Welkom bij Workspace!</h1>
+    <p>Ik ben je professor. Ik zal je begeleiden bij elk spel en elke taal.</p>
+    <button onclick="alert('Het spelmenu wordt hier toegevoegd.')">Begin met leren</button>
+  </main>
+</body>
+</html>
