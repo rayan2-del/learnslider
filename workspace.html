@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+<section id="voetbal" style="text-align:center;">
+  <h2>⚽ Voetbalspel</h2>
+  <p>Score: <strong id="voetbalScore">0</strong></p>
+  <button onclick="voetbalSchot('links')">Schiet links</button>
+  <button onclick="voetbalSchot('rechts')">Schiet rechts</button>
+  <p id="voetbalResultaat"></p>
+</section>
+
+<script>
+let voetbalScore = 0;
+
+function voetbalSchot(richting) {
+  const keeper = Math.random() < 0.5 ? "links" : "rechts";
+  if (richting !== keeper) {
+    voetbalScore++;
+    document.getElementById("voetbalResultaat").textContent = "🎉 Goal!";
+  } else {
+    document.getElementBy="voetbalResultaat".textContent =
+      "🧤 De keeper stopt hem!";
+  }
+  document.getElementById("voetbalScore").textContent = voetbalScore;
+}
+</script><!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +28,29 @@
   <title>Workspace</title>
   <style>
     * { box-sizing: border-box; }
-    body {
+    body {<section id="voetbal" style="text-align:center;">
+  <h2>⚽ Voetbalspel</h2>
+  <p>Score: <strong id="voetbalScore">0</strong></p>
+  <button onclick="voetbalSchot('links')">Schiet links</button>
+  <button onclick="voetbalSchot('rechts')">Schiet rechts</button>
+  <p id="voetbalResultaat"></p>
+</section>
+
+<script>
+let voetbalScore = 0;
+
+function voetbalSchot(richting) {
+  const keeper = Math.random() < 0.5 ? "links" : "rechts";
+  if (richting !== keeper) {
+    voetbalScore++;
+    document.getElementById("voetbalResultaat").textContent = "🎉 Goal!";
+  } else {
+    document.getElementBy="voetbalResultaat".textContent =
+      "🧤 De keeper stopt hem!";
+  }
+  document.getElementById("voetbalScore").textContent = voetbalScore;
+}
+</script>
       margin: 0;
       min-height: 100vh;
       background: #090d18;
