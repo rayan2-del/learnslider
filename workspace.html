@@ -1,189 +1,154 @@
-<section id="voetbal" style="text-align:center;">
-  <h2>⚽ Voetbalspel</h2>
-  <p>Score: <strong id="voetbalScore">0</strong></p>
-  <button onclick="voetbalSchot('links')">Schiet links</button>
-  <button onclick="voetbalSchot('rechts')">Schiet rechts</button>
-  <p id="voetbalResultaat"></p>
-</section>
-
-<script>
-let voetbalScore = 0;
-
-function voetbalSchot(richting) {
-  const keeper = Math.random() < 0.5 ? "links" : "rechts";
-  if (richting !== keeper) {
-    voetbalScore++;
-    document.getElementById("voetbalResultaat").textContent = "🎉 Goal!";
-  } else {
-    document.getElementBy="voetbalResultaat".textContent =
-      "🧤 De keeper stopt hem!";
-  }
-  document.getElementById("voetbalScore").textContent = voetbalScore;
-}
-</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workspace</title>
   <style>
-    * { box-sizing: border-box; }  document.getElementById("voetbalScore").textContent = voetbalScore;
-}
-</script>
-
-</body>
-</html>
-    body {<section id="voetbal" style="text-align:center;">
-  <h2>⚽ Voetbalspel</h2>
-  <p>Score: <strong id="voetbalScore">0</strong></p>
-  <button onclick="voetbalSchot('links')">Schiet links</button>
-  <button onclick="voetbalSchot('rechts')">Schiet rechts</button>
-  <p id="voetbalResultaat"></p>
-</section>
-
-<script>
-let voetbalScore = 0;
-
-function voetbalSchot(richting) {
-  const keeper = Math.random() < 0.5 ? "links" : "rechts";
-  if (richting !== keeper) {
-    voetbalScore++;
-    document.getElementById("voetbalResultaat").textContent = "🎉 Goal!";
-  } else {
-    document.getElementBy="voetbalResultaat".textContent =
-      "🧤 De keeper stopt hem!";
-  }
-  document.getElementById("voetbalScore").textContent = voetbalScore;
-}
-</script>
+    * { box-sizing: border-box; }
+    body {
       margin: 0;
       min-height: 100vh;
-      background: #090d18;
-      color: white;
       font-family: Arial, sans-serif;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .intro {
-      position: fixed;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      background: #090d18;
-      z-index: 10;
-      animation: hideIntro 1s 3.2s forwards;
-    }
-
-    .logo {
-      font-size: clamp(3.5rem, 12vw, 8rem);
-      font-weight: 900;
-      letter-spacing: .08em;
-      animation: logoIn 1.2s ease both;
-    }
-
-    .logo span:nth-child(2n) { color: #58a6ff; }
-    .logo span:nth-child(2n + 1) { color: #ffb347; }
-
-    .home {
-      width: min(600px, 90%);
-      text-align: center;
-      opacity: 0;
-      animation: showHome 1s 3.8s forwards;
-    }
-
-    .professor {
-      width: 150px;
-      height: 150px;
-      margin: auto;
-      border-radius: 50%;
-      background: #ffc28a;
-      border: 8px solid white;
-      display: grid;
-      place-items: center;
-      font-size: 5rem;
-    }
-
-    button {
-      margin-top: 25px;
-      border: 0;
-      border-radius: 14px;
-      padding: 16px 28px;
-      background: #58a6ff;
       color: white;
-      font-size: 1.1rem;
+      background: linear-gradient(135deg, #090d18, #101a32);
+    }
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 22px;
       font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
+      color: white;
+      background: #2f66c7;
+      box-shadow: 0 5px 0 #173875;
     }
+    button:active { transform: translateY(3px); box-shadow: 0 2px 0 #173875; }
+    .screen { display: none; min-height: 100vh; }
+    .screen.active { display: grid; }
+    #home { place-items: center; text-align: center; }
+    .menu { display: grid; gap: 12px; width: min(420px, 90%); }
+    .menu button { width: 100%; }
+    .game-head { position: fixed; top: 12px; left: 12px; z-index: 20; }
+    .game-head button { background: #1b3b75; }
 
-    @keyframes logoIn {
-      0% { opacity: 0; transform: scale(.5); }
-      100% { opacity: 1; transform: scale(1); }
+    #football {
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.12), transparent 25%),
+        linear-gradient(90deg, #398b42 0 12.5%, #49a954 12.5% 25%, #398b42 25% 37.5%, #49a954 37.5% 50%, #398b42 50% 62.5%, #49a954 62.5% 75%, #398b42 75% 87.5%, #49a954 87.5%);
     }
-    @keyframes hideIntro { to { opacity: 0; visibility: hidden; } }
-    @keyframes showHome { to { opacity: 1; } }
+    #football.active { display: grid; }
+    .football-card {
+      width: min(760px, 92%);
+      margin-top: 40px;
+      text-align: center;
+      border: 3px solid rgba(255,255,255,.55);
+      border-radius: 18px;
+      background: rgba(18,43,99,.92);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      padding: 24px;
+    }
+    .players { display: flex; justify-content: center; align-items: end; gap: 18px; }
+    .player { font-size: clamp(4rem, 13vw, 8rem); filter: drop-shadow(0 8px 4px rgba(0,0,0,.25)); }
+    .ball { position: relative; display: inline-block; font-size: clamp(3rem, 9vw, 5.5rem); transition: .35s ease; }
+    .ball.left { transform: translate(-230px, 50px) rotate(-35deg); }
+    .ball.right { transform: translate(230px, 50px) rotate(35deg); }
+    .score { font-size: 1.25rem; color: #ffd36a; }
+    .football-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .goal { background: #35b84b; box-shadow: 0 5px 0 #21792e; }
+    .miss { background: #d89a32; box-shadow: 0 5px 0 #8e621f; }
+    #footballResult { min-height: 28px; font-size: 1.2rem; font-weight: bold; }
+
+    #quiz, #memory, #translation { place-items: center; text-align: center; }
+    #quiz.active, #memory.active, #translation.active { display: grid; }
+    .panel { width: min(540px, 90%); background: #132851; border-radius: 16px; padding: 30px; }
   </style>
 </head>
 <body>
-  <div class="intro" aria-label="Workspace startscherm">
-    <div class="logo" aria-label="Workspace">
-      <span>W</span><span>O</span><span>R</span><span>K</span><span>S</span><span>P</span><span>A</span><span>C</span><span>E</span>
-    </div>
+  <div class="game-head" id="backButton" hidden>
+    <button onclick="showScreen('home')">← Terug</button>
   </div>
 
-  <main class="home">
-    <div class="professor" aria-hidden="true">👨‍🏫</div>
-    <h1>Welkom bij Workspace!</h1>
-    <p>Ik ben je professor. Ik zal je begeleiden bij elk spel en elke taal.</p>
-    <button onclick="alert('Het spelmenu wordt hier toegevoegd.')">Begin met leren</button>
+  <main id="home" class="screen active">
+    <div class="menu">
+      <h1>⚽ Workspace</h1>
+      <p>Welkom bij mijn spelletjes</p>
+      <button onclick="showScreen('football')">Voetbalspel</button>
+      <button onclick="showScreen('quiz')">Quiz</button>
+      <button onclick="showScreen('translation')">Vertalen</button>
+      <button onclick="showScreen('memory')">Memory</button>
+    </div>
   </main>
+
+  <main id="football" class="screen">
+    <section class="football-card">
+      <h2>CURL</h2>
+      <div class="players"><div class="player">🧍‍♂️</div><div class="player">🧍</div><div class="player">🧍‍♂️</div></div>
+      <div id="ball" class="ball">⚽</div>
+      <p class="score">GOALS: <strong id="footballScore">0</strong></p>
+      <p id="footballResult">Kies links of rechts!</p>
+      <div class="football-actions">
+        <button class="goal" onclick="shoot('left')">Schiet links</button>
+        <button class="goal" onclick="shoot('right')">Schiet rechts</button>
+      </div>
+    </section>
+  </main>
+
+  <main id="quiz" class="screen">
+    <section class="panel">
+      <h2>Quiz</h2>
+      <p>Wat betekent “hello”?</p>
+      <button onclick="alert('Goed!')">Hallo</button>
+      <button onclick="alert('Probeer opnieuw')">Hond</button>
+    </section>
+  </main>
+
+  <main id="translation" class="screen">
+    <section class="panel">
+      <h2>Vertalen</h2>
+      <p>Wat is het Nederlandse woord voor “football”?</p>
+      <button onclick="alert('Juist!')">Voetbal</button>
+      <button onclick="alert('Probeer opnieuw')">School</button>
+    </section>
+  </main>
+
+  <main id="memory" class="screen">
+    <section class="panel">
+      <h2>Memory</h2>
+      <p>Een eenvoudig geheugenspel</p>
+      <button onclick="alert('Kleur: blauw!')">Kaart omdraaien</button>
+    </section>
+  </main>
+
+  <script>
+    let footballScore = 0;
+
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(function(screen) {
+        screen.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      document.getElementById('backButton').hidden = id === 'home';
+    }
+
+    function shoot(direction) {
+      const keeper = Math.random() < 0.5 ? 'left' : 'right';
+      const ball = document.getElementById('ball');
+      ball.className = 'ball ' + direction;
+
+      setTimeout(function() {
+        if (direction !== keeper) {
+          footballScore++;
+          document.getElementById('footballResult').textContent = '🎉 GOAL!';
+        } else {
+          document.getElementById('footballResult').textContent = '🧤 De keeper stopt hem!';
+        }
+        document.getElementById('footballScore').textContent = footballScore;
+        ball.className = 'ball';
+      }, 350);
+    }
+  </script>
 </body>
 </html>
-<div id="games">
-  <button onclick="startQuiz()">Quiz</button>
-  <button onclick="startTranslation()">Vertalen</button>
-  <button onclick="startMemory()">Memory</button>
-</div>
-
-<script>
-function startQuiz() {
-  document.getElementById("games").innerHTML =
-    "<h2>Wat betekent: hello?</h2><button onclick=\"answer(true)\">Hallo</button>";
-}
-
-function answer(correct) {
-  alert(correct ? "Goed!" : "Probeer opnieuw");
-}
-
-function startTranslation() {
-  alert("Vertaalspel komt hier.");
-}<section id="voetbal" style="text-align:center;">
-  <h2>⚽ Voetbalspel</h2>
-  <p>Score: <strong id="voetbalScore">0</strong></p>
-  <button onclick="voetbalSchot('links')">Schiet links</button>
-  <button onclick="voetbalSchot('rechts')">Schiet rechts</button>
-  <p id="voetbalResultaat"></p>
-</section>
-
-<script>
-let voetbalScore = 0;
-
-function voetbalSchot(richting) {
-  const keeper = Math.random() < 0.5 ? "links" : "rechts";
-  if (richting !== keeper) {
-    voetbalScore++;
-    document.getElementById("voetbalResultaat").textContent =
-      "🎉 Goal!";
-  } else {
-    document.getElementById("voetbalResultaat").textContent =
-      "🧤 De keeper stopt hem!";
-  }
-  document.getElementById("voetbalScore").textContent = voetbalScore;
-}
-</script>
-
-function startMemory() {
-  alert("Memory komt hier.");
-}
-</script>
